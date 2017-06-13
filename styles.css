@@ -11,6 +11,7 @@ html {
 body {
     background: #dbd9d9;
     margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .inner {
     max-width: 960px;
@@ -20,9 +21,58 @@ body {
     align-items: center;
 }
 
+.images . inner {
+    flex-wrap: wrap;
+}
+
+@supports(display:grid) or (display: -ms-grid){
+    .images .inner{
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2em;
+    }
+}
+
+.image{
+    position: relative;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.image__cover{
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    padding-top: calc(50% - .5em);
+    transition: top .5s, background 1s;
+}
+
+/* any .image__cover that's inside a hovered .image show move back to the top */
+.image:hover .image__cover{
+top: 0;
+background: rgba(0, 0, 0, .5);
+}
+
 header {
     background: #fff;
     padding: 1em 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: padding 1s;
+}
+
+.header--small{
+    padding: 0 0;
 }
 
 .header__logo {
@@ -31,12 +81,41 @@ header {
 }
 
 /*Profile Area Styles */
+.profile {
+    margin-top: 100px;
+}
+
 .profile__image {
     border-radius: 50%;
     overflow: hidden;
     width: 200px;
     height: 200px;
+    flex: 0 0 200px;
 }
+
+.profile__info {
+    flex: 1 1 auto;
+    margin-left: 2em;
+}
+
+
+.profile__meta{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.profile__meta li {
+    margin-right: 2em;
+}
+
+
+/*
+.bold{
+    font-weight: bold;
+}
+*/
 
 .button {
     color: #4090db;
@@ -52,4 +131,54 @@ header {
      border-radius: 20px;
  }
 
+img {
+    max-width: 100%;
+}
+
+.link {
+    text-decoration: none;
+    color: #4090db;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
  
+.link:before {
+    content: "🙉 ";
+}
+
+@media(max-width: 1000px) {
+    .inner {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+
+@media(max-width: 630px){
+    .images .inner{
+        -ms-grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+    }
+
+    .profile .inner {
+        flex-direction: column;
+    }
+
+    .profile__image {
+        width: 100px;
+        height: 100px;
+        flex: 0 0 100px;
+    }
+
+    header .inner {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .header__search {
+        order: 1;
+    }
+  
+}

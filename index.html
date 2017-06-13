@@ -7,12 +7,13 @@
     <title>Instagram!</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="inner">
             <div class="header__logo">Instagram</div>
-            <div>
+            <div class="header__search">
                 <input type="text" placeholder="e.g. People">
             </div>
             <div>
@@ -31,17 +32,53 @@
             <div class="profile__info">
                 <h2>Username</h2>
                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ducimus perferendis et aut provident enim.</p>
-                <a href="#">www.twitter.com</a>
-            <ul>
-                <li>100 posts</li>
-                <li>789 Followers</li>
-                <li>50 Following</li>
+                <a href="#" class="link">www.twitter.com</a>
+            <ul class="profile__meta">
+                <li><strong>100</strong> posts</li>
+                <li><strong>789</strong> Followers</li>
+                <li><strong>50</strong> Following</li>
             </ul>
 
             </div>
         </div>
     </div>
 
-    
+    <!-- Images -->
+    <div class="images">
+        <div class="inner">
+            <a href="" class="image">
+                <img src="http://unsplash.it/300/?image=45" alt="">
+                <span class="image__cover">View Image</span>
+            </a>
+            <a href="" class="image">
+                <img src="http://unsplash.it/300/?image=145" alt="">
+                <span class="image__cover">View Image</span>
+            </a>
+            <a href="" class="image">
+                <img src="http://unsplash.it/300/?image=255" alt="">
+                <span class="image__cover">View Image</span>
+            </a>
+            <a href="" class="image">
+                <img src="http://unsplash.it/300/?image=345" alt="">
+                <span class="image__cover">View Image</span>
+            </a>
+            <a href="" class="image">
+                <img src="http://unsplash.it/300/?image=445" alt="">
+                <span class="image__cover">View Image</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function(){
+            var distance = window.pageYOffset || document.documentElement.scrollTop
+            var header = document.querySelector('header')
+            if(distance > 200){
+                header.classList.add('header--small')
+            } else {
+                header.classList.remove('header--small')
+            }
+        })
+    </script>
 </body>
 </html>
