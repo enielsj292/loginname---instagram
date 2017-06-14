@@ -148,6 +148,25 @@ img {
     content: "🙉 ";
 }
 
+.full {
+    /* position it, change the width/height, background color */
+    /* How should it "display" it in a flexible way - horizontally and vertically centered */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}
+
 @media(max-width: 1000px) {
     .inner {
         padding-left: 1em;

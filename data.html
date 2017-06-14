@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DATA</title>
+</head>
+<body>
+    <script>
+        //Use fetch() to load remote data
+        fetch('http://unsplash.it/list')
+            .then(result => {
+                return result.json() //convert text into JSON data
+            })
+            .then(result => {
+               //Now that we have the data, we can work with it
+               let randoms = []
+               for(let i=0; i<20; i++) {
+                   randoms.push( Math.round(Math.random()*result.length) )
+               }
+               let images = result.filter(image => {
+                   return randoms.includes(image.id)
+               })
+               console.log(randoms,images)
+            })
+
+            /*
+            .catch(error => {
+                console.log('something went wrong!!!')
+            })
+           
+            */
+    </script>
+    
+</body>
+</html>
