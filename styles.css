@@ -37,7 +37,7 @@ body {
 
 .image{
     position: relative;
-    line-height: 0;
+    display: inherit; /*fix extra line space */
     overflow: hidden;
 }
 
@@ -91,6 +91,7 @@ header {
     width: 200px;
     height: 200px;
     flex: 0 0 200px;
+    margin-bottom: 20px;
 }
 
 .profile__info {
