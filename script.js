@@ -32,7 +32,7 @@
             const images = document.querySelectorAll('.image img')
             images.forEach(function(image, index){
                 image.addEventListener('error',function(){
-                    this.src = `http://unsplash.it/600/?image=123`
+                    this.src = `https://unsplash.it/600/?image=123`
                 })
             })
         }
@@ -42,7 +42,7 @@
                 const fullContainer = document.querySelector('.full')  //the div
                 const fullImage = fullContainer.querySelector('img')  //the image in the div
                 //Set the src of the fullImage to be a bigger version
-                fullImage.src = `http://unsplash.it/600/?image=${id}`
+                fullImage.src = `https://unsplash.it/600/?image=${id}`
                 //Remove the hidden class from the fullContainer to show it
                 fullContainer.classList.remove('hidden')
             }
@@ -56,12 +56,12 @@
                 this.classList.add('hidden')
              })
 
-        //Load Data from http://unsplash.it/list
+        //Load Data from https://unsplash.it/list
         //Then convert to Json
         //Then grab 20 random images
         //Then add images to HTML and call addClickEvents()
                 //Use fetch() to load remote data
-        fetch('http://unsplash.it/list')
+        fetch('https://unsplash.it/list')
             .then(result => {
                 return result.json() //convert text into JSON data
             })
@@ -91,7 +91,7 @@
                 //maybe just console.log something to make sure it is working
                 imageArray.forEach(function(image, index){
                     const html = ` <a href="" class="image">
-                <img src="http://unsplash.it/300/?image=${image.id}" alt="${image.author}">
+                <img src="https://unsplash.it/300/?image=${image.id}" alt="${image.author}">
                 <span class="image__cover">View Image</span>
                 </a>`
                     imageContainer.innerHTML += html
@@ -100,7 +100,7 @@
 
             /*
              <a href="" class="image">
-                <img src="http://unsplash.it/300/?image=45" alt="">
+                <img src="https://unsplash.it/300/?image=45" alt="">
                 <span class="image__cover">View Image</span>
             </a>
             */
